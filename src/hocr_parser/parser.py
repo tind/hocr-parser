@@ -74,6 +74,7 @@ class HOCRElement:
     def ocr_text(self):
         pass
 
+
 class HOCRDocument(HOCRElement):
 
     def __init__(self, source, is_path=False):
@@ -109,6 +110,7 @@ class Page(HOCRElement):
 
     def __init__(self, parent, hocr_html):
         super(Page, self).__init__(hocr_html, parent, 'div', Area.HOCR_AREA_TAG, Area)
+        self._words = self._parse('span', 'ocrx_word', Word)
 
     @property
     def ocr_text(self):
@@ -127,6 +129,17 @@ class Page(HOCRElement):
     def nareas(self):
         return len(self._elements)
 
+    @property
+    def areas(self):
+        return self._elements
+
+    @property
+    def words(self):
+        return self._words
+
+    @property
+    def nwords(self):
+        return len(self._words)
 
 
 class Area(HOCRElement):
