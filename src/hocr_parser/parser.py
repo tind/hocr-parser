@@ -1,8 +1,9 @@
 __author__ = 'Rafa Haro <rh@athento.com>'
 
-from abc import ABCMeta, abstractmethod
-from bs4 import BeautifulSoup
 import re
+from abc import ABCMeta, abstractmethod
+
+from bs4 import BeautifulSoup
 
 
 class HOCRElement:
@@ -110,7 +111,7 @@ class Page(HOCRElement):
 
     def __init__(self, parent, hocr_html):
         super(Page, self).__init__(hocr_html, parent, 'div', Area.HOCR_AREA_TAG, Area)
-        self._words = self._parse('span', 'ocrx_word', Word)
+        self._words = self._parse('', 'ocrx_word', Word)
 
     @property
     def ocr_text(self):
@@ -128,10 +129,6 @@ class Page(HOCRElement):
     @property
     def nareas(self):
         return len(self._elements)
-
-    @property
-    def areas(self):
-        return self._elements
 
     @property
     def words(self):
