@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name='hocr-parser',
-    version='0.1',
+    version='1.0',
     description='HOCR Specification Python Parser',
     author='Athento',
     author_email='rh@athento.com',
