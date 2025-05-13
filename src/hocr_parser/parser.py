@@ -111,7 +111,7 @@ class Page(HOCRElement):
 
     def __init__(self, parent, hocr_html):
         super(Page, self).__init__(hocr_html, parent, 'div', Area.HOCR_AREA_TAG, Area)
-        self._words = self._parse('', 'ocrx_word', Word)
+        self._words = self._parse(True, 'ocrx_word', Word)
 
     @property
     def ocr_text(self):
